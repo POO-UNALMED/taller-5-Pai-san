@@ -30,15 +30,19 @@ public class Animal {
 		this.genero = genero;
 	}
 	Zona zona;
-public Animal(int edad,String nombre,String habitat,String genero) {
+public Animal() {
+
+}
+public Animal(String nombre,int edad,String habitat,String genero) {
 	this.edad=edad;
 	this.nombre=nombre;
 	this.habitat=habitat;
 	this.genero=genero;
 	totalAnimales++;
 }
-public void movimiento() {
-	System.out.println("desplazarse");
+public static String movimiento() {
+	String m="desplazarse";
+	return m;
 }
 public void totalPorTipo() {
 	System.out.println(Mamifero.cantidadMamiferos());

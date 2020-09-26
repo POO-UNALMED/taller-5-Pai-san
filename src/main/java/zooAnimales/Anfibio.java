@@ -5,11 +5,20 @@ import java.util.ArrayList;
 public class Anfibio extends Animal {
 	ArrayList<Object> listado;
 	static int ranas,salamandras;
-	String colorPiel;
+	private String colorPiel;
+	public String getColorPiel() {
+		return colorPiel;
+	}
+	public void setColorPiel(String colorPiel) {
+		this.colorPiel = colorPiel;
+	}
 	boolean venenoso;
 	Anfibio objeto;
-public Anfibio(int edad,String nombre,String habitat,String genero,String colorPiel,boolean venenoso) {
-		super(edad, nombre, habitat, genero);
+public Anfibio() {
+	
+}
+public Anfibio(String nombre,int edad,String habitat,String genero,String colorPiel,boolean venenoso) {
+		super(nombre,edad,habitat, genero);
 		this.colorPiel=colorPiel;
 		this.venenoso=venenoso;
 		listado.add(this);
@@ -17,18 +26,22 @@ public Anfibio(int edad,String nombre,String habitat,String genero,String colorP
 public static int cantidadAnfibios() {
 	return ranas+salamandras;
 }
-public void movimiento( ) {
-	System.out.println("saltar");
+public static String movimiento( ) {
+	String m="saltar";
+	return m;
 }
 public void crearRana(int edad,String nom,String gen) {
-	Anfibio objeto = new Anfibio(edad,nom,"selva",gen,"rojo",true);
+	Anfibio objeto = new Anfibio(nom,edad,"selva",gen,"rojo",true);
 	ranas++;
 	
 }
 public void crearSalamandra(int edad,String nom,String gen) {
-	Anfibio objeto = new Anfibio(edad,nom,"selva",gen,"rojo",true);
+	Anfibio objeto = new Anfibio(nom,edad,"selva",gen,"rojo",true);
 	salamandras++;
 	
+}
+public boolean isVenenoso() {
+	return venenoso;
 }
 }
 

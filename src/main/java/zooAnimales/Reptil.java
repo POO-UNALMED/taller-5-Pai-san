@@ -4,11 +4,25 @@ import java.util.*;
 public class Reptil extends Animal{
 	ArrayList<Object> listado;
 	static int iguanas,serpientes;
-	int largoCola;
-	String colorEscamas;
+	private int largoCola;
+	private String colorEscamas;
+	public int getLargoCola() {
+		return largoCola;
+	}
+	public void setLargoCola(int largoCola) {
+		this.largoCola = largoCola;
+	}
+	public String getColorEscamas() {
+		return colorEscamas;
+	}
+	public void setColorEscamas(String colorEscamas) {
+		this.colorEscamas = colorEscamas;
+	}
 	Reptil objeto;
-public Reptil(int edad,String nombre,String habitat,String genero,String colorEscamas,int largoCola) {
-	super(edad, nombre, habitat, genero);
+public Reptil() {
+}
+public Reptil(String nombre,int edad,String habitat,String genero,String colorEscamas,int largoCola) {
+	super(nombre,edad,habitat, genero);
 	this.colorEscamas=colorEscamas;
 	this.largoCola=largoCola;	
 	listado.add(this);
@@ -16,16 +30,17 @@ public Reptil(int edad,String nombre,String habitat,String genero,String colorEs
 public static int cantidadReptiles() {
 	return iguanas+serpientes;
 }
-public void movimiento( ) {
-	System.out.println("reptar");
+public static String movimiento( ) {
+	String m="reptar";
+	return m;
 }
-public void crearIguana(int edad,String nom,String gen) {
-    Reptil objeto = new Reptil(edad,nom,"humedal",gen,"verde",3);
+public void crearIguana(String nom,int edad,String gen) {
+    Reptil objeto = new Reptil(nom,edad,"humedal",gen,"verde",3);
 	iguanas++;
 	
 }
-public void crearSerpiente(int edad,String nom,String gen ) {
-	Reptil objeto = new Reptil(edad,nom,"jungla",gen,"blanco",1);
+public void crearSerpiente(String nom,int edad,String gen ) {
+	Reptil objeto = new Reptil(nom,edad,"jungla",gen,"blanco",1);
 	serpientes++;
 	
 }
