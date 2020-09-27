@@ -1,47 +1,54 @@
 package zooAnimales;
 
 import java.util.ArrayList;
+import java.util.List;
+
 
 public class Anfibio extends Animal {
-	ArrayList<Object> listado;
-	static int ranas,salamandras;
+	private static List<Anfibio> listado= new ArrayList<Anfibio>();
+	public static int ranas;
+	public static int salamandras;
 	private String colorPiel;
+	private boolean venenoso;
+	public Anfibio(String nom,int ed, String hab, String gen,String col,boolean ven){
+		super(nom,ed,hab,gen);
+		colorPiel = col; venenoso=ven;
+		listado.add(this);
+	}
+	public Anfibio() {
+		listado.add(this);
+	}
+	public static int cantidadAnfibios() {
+		return listado.size();
+	}
+	public String movimiento() {
+		return "saltar";
+	}
+	public static Anfibio crearRana(String nom, int ed, String gen) {
+		ranas ++;
+		return new Anfibio(nom, ed, "selva", gen, "rojo", true);
+	}
+	public static Anfibio crearSalamandra(String nom, int ed, String gen) {
+		salamandras ++;
+		return new Anfibio(nom, ed, "selva", gen, "negro y amarillo", false);
+	}
+	public static List<Anfibio> getListado() {
+		return listado;
+	}
+	public static void setListado(List<Anfibio> listado) {
+		Anfibio.listado = listado;
+	}
 	public String getColorPiel() {
 		return colorPiel;
 	}
 	public void setColorPiel(String colorPiel) {
 		this.colorPiel = colorPiel;
 	}
-	boolean venenoso;
-	Anfibio objeto;
-public Anfibio() {
-	
-}
-public Anfibio(String nombre,int edad,String habitat,String genero,String colorPiel,boolean venenoso) {
-		super(nombre,edad,habitat, genero);
-		this.colorPiel=colorPiel;
-		this.venenoso=venenoso;
-		listado.add(this);
-}
-public static int cantidadAnfibios() {
-	return ranas+salamandras;
-}
-public static String movimiento( ) {
-	String m="saltar";
-	return m;
-}
-public void crearRana(int edad,String nom,String gen) {
-	Anfibio objeto = new Anfibio(nom,edad,"selva",gen,"rojo",true);
-	ranas++;
-	
-}
-public void crearSalamandra(int edad,String nom,String gen) {
-	Anfibio objeto = new Anfibio(nom,edad,"selva",gen,"rojo",true);
-	salamandras++;
-	
-}
-public boolean isVenenoso() {
-	return venenoso;
-}
+	public boolean isVenenoso() {
+		return venenoso;
+	}
+	public void setVenenoso(boolean venenoso) {
+		this.venenoso = venenoso;
+	}
 }
 
